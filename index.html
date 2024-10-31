@@ -1,0 +1,2979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALLOWEEN FUN!!!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="app">
+        <input class="menuInput" type="checkbox" id="game" />
+        <input class="menuInput" type="checkbox" id="credits" />
+        <input class="menuInput" type="checkbox" id="aboutMe" />
+        <!--input type="hidden" is for non user generated inputs (example unique id) to have on form submission -->
+        <section id="welcomeSection">
+          <h1 class="title">Monster<br>Click</h1>
+          <p>Some monsters are harder to kill</p>
+          <label class="menuButton" for="game">Play</label>
+        </section>
+      
+        <section id="gameSection">
+          <section id="gameOver">Game Over
+      
+            <!-- -->
+            <input class="menuButton" type="reset" value="Back to Menu"/></section>
+            <ul id="shootingField">
+              <!-- Target 1 starts here -->
+              <li id="target-1-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                </label>
+              </li>
+              <!-- Target 2 starts here -->
+              <li id="target-2-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+      
+                </label>
+              </li>
+              <!-- Target 3 starts here -->
+              <li id="target-3-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 4 starts here -->
+              <li id="target-4-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 5 starts here -->
+              <li id="target-5-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 6 starts here -->
+              <li id="target-6-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 7 starts here -->
+              <li id="target-7-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 8 starts here -->
+              <li id="target-8-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 9 starts here -->
+              <li id="target-9-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 10 starts here -->
+              <li id="target-10-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 11 starts here -->
+              <li id="target-11-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 12 starts here -->
+              <li id="target-12-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 13 starts here -->
+              <li id="target-13-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 14 starts here -->
+              <li id="target-14-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 15 starts here -->
+              <li id="target-15-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 16 starts here -->
+              <li id="target-16-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 17 starts here -->
+              <li id="target-17-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 18 starts here -->
+              <li id="target-18-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 19 starts here -->
+              <li id="target-19-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 20 starts here -->
+              <li id="target-20-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 21 starts here -->
+              <li id="target-21-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 22 starts here -->
+              <li id="target-22-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 23 starts here -->
+              <li id="target-23-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 24 starts here -->
+              <li id="target-24-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 25 starts here -->
+              <li id="target-25-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 26 starts here -->
+              <li id="target-26-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 27 starts here -->
+              <li id="target-27-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 28 starts here -->
+              <li id="target-28-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 29 starts here -->
+              <li id="target-29-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 30 starts here -->
+              <li id="target-30-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 31 starts here -->
+              <li id="target-31-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 32 starts here -->
+              <li id="target-32-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 33 starts here -->
+              <li id="target-33-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 34 starts here -->
+              <li id="target-34-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 35 starts here -->
+              <li id="target-35-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 36 starts here -->
+              <li id="target-36-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 37 starts here -->
+              <li id="target-37-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 38 starts here -->
+              <li id="target-38-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 39 starts here -->
+              <li id="target-39-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 40 starts here -->
+              <li id="target-40-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 41 starts here -->
+              <li id="target-41-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 42 starts here -->
+              <li id="target-42-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 43 starts here -->
+              <li id="target-43-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 44 starts here -->
+              <li id="target-44-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 45 starts here -->
+              <li id="target-45-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 46 starts here -->
+              <li id="target-46-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 47 starts here -->
+              <li id="target-47-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 48 starts here -->
+              <li id="target-48-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 49 starts here -->
+              <li id="target-49-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 50 starts here -->
+              <li id="target-50-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 51 starts here -->
+              <li id="target-51-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 52 starts here -->
+              <li id="target-52-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 53 starts here -->
+              <li id="target-53-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 54 starts here -->
+              <li id="target-54-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 55 starts here -->
+              <li id="target-55-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 56 starts here -->
+              <li id="target-56-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 57 starts here -->
+              <li id="target-57-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 58 starts here -->
+              <li id="target-58-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 59 starts here -->
+              <li id="target-59-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 60 starts here -->
+              <li id="target-60-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 61 starts here -->
+              <li id="target-61-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 62 starts here -->
+              <li id="target-62-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 63 starts here -->
+              <li id="target-63-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 64 starts here -->
+              <li id="target-64-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 65 starts here -->
+              <li id="target-65-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 66 starts here -->
+              <li id="target-66-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 67 starts here -->
+              <li id="target-67-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 68 starts here -->
+              <li id="target-68-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 69 starts here -->
+              <li id="target-69-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 70 starts here -->
+              <li id="target-70-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 71 starts here -->
+              <li id="target-71-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 72 starts here -->
+              <li id="target-72-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 73 starts here -->
+              <li id="target-73-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 74 starts here -->
+              <li id="target-74-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 75 starts here -->
+              <li id="target-75-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 76 starts here -->
+              <li id="target-76-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 77 starts here -->
+              <li id="target-77-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 78 starts here -->
+              <li id="target-78-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 79 starts here -->
+              <li id="target-79-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 80 starts here -->
+              <li id="target-80-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 81 starts here -->
+              <li id="target-81-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 82 starts here -->
+              <li id="target-82-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 83 starts here -->
+              <li id="target-83-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 84 starts here -->
+              <li id="target-84-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 85 starts here -->
+              <li id="target-85-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 86 starts here -->
+              <li id="target-86-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 87 starts here -->
+              <li id="target-87-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 88 starts here -->
+              <li id="target-88-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 89 starts here -->
+              <li id="target-89-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 90 starts here -->
+              <li id="target-90-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 91 starts here -->
+              <li id="target-91-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 92 starts here -->
+              <li id="target-92-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 93 starts here -->
+              <li id="target-93-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 94 starts here -->
+              <li id="target-94-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 95 starts here -->
+              <li id="target-95-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 96 starts here -->
+              <li id="target-96-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="skull">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <div class="nose">
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="jaw">
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                      <div class="tooth"></div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 97 starts here -->
+              <li id="target-97-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 98 starts here -->
+              <li id="target-98-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <!-- Target 99 starts here -->
+              <li id="target-99-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="zombie">
+                    <div class="head">
+                      <div class="forehead"></div>
+                      <div class="eyes-and-nose">
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="eyebags">
+                          <div class="eye"></div>
+                        </div>
+                        <div class="nose">
+                          <div class="nostrils"></div>
+                          <div class="nostrils"></div>
+                        </div>
+                      </div>
+                      <div class="earsOPTIONAL"></div>
+                      <div class="jaw">
+                        <div class="mouth">
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                          <div class="openMouth"></div>
+                          <div class="teeth">
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                            <div class="tooth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </label>
+              </li>
+              <!-- Target 100 starts here -->
+              <li id="target-100-location" class="initial-target-location">
+                <label class="target">
+                  <input type="radio">
+                  <!--CHARACTER GOES HERE-->
+                  <div class="ghost">
+                    <div class="body">
+                      <div class="forehead"></div>
+                      <div class="eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                      </div>
+                      <div class="mouth">
+                        <div class="lips"></div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </li>
+            </ul>
+      
+            <aside>
+              <div id="countdown">
+                <div id="progressBar">
+                  <div id="progress"></div>
+                </div>
+                <div id="counter">
+                </div>
+              </div>
+              <div id="score"></div>
+            </aside>
+          </section>
+      </form>
+</body>
+</html>

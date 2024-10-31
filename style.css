@@ -1,0 +1,3370 @@
+/* VARIABLES */
+/** {
+  outline: 1px solid red;
+}*/
+:root {
+  font-size: calc(0.4em + 1vw);
+  /*BACKGROUND IMG */
+  --menu-bg-img: url("https://img.freepik.com/free-vector/spooky-house-woods_24381-1082.jpg?size=626&ext=jpg"); /*Freepic link: https://www.freepik.com/premium-vector/spooky-house-woods_5747351.htm#page=1&query=graveyard&position=3*/
+  --game-bg-img: url("https://image.freepik.com/free-vector/frightening-halloween-realistic-background_33099-1052.jpg"); /* Freepic link: https://www.freepik.com/free-vector/frightening-halloween-realistic-background_3824490.htm#page=1&query=graveyard&position=0*/
+
+  --menu-bg-img_backup: url("https://image.freepik.com/free-vector/spooky-graveyard-with-zombie-hand-coming-out-ground_1048-12925.jpg"); /*https://www.freepik.com/free-vector/spooky-graveyard-with-zombie-hand-coming-out-ground_10135332.htm#page=1&query=graveyard&position=2*/
+  --game-bg-img_backup: url("https://image.freepik.com/free-vector/halloween-background-with-graveyard_11700-412.jpg"); /*https://www.freepik.com/premium-vector/halloween-background-with-graveyard_9754132.htm#page=1&query=graveyard&position=9*/
+
+  /*COLORS*/
+  --yellow_light: #ffff6f;
+  --green_light: #acda81;
+  --green_base: #6f9947;
+  --green_dark: #394e25;
+  --purple_light: #bc6997;
+  --purple_base: #84305d;
+  --purple_dark: #57213d;
+
+  --grey_light: #d3d3d3;
+  --grey_base: grey;
+  --grey_dark: #5a5a5a;
+  --black: #2c272d;
+  --white: white;
+
+  /* UI COLORS */
+  --callToActionColor: var(--green_base);
+  --textColor: var(--white);
+  --bgOverlayColor: var(--purple_base);
+  --popUpBg: var(--green_dark);
+  --progressBar: var(--purple_base);
+  --scoreBg: var(--purple_base);
+
+  /* WEAPON*/
+  --cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='45' height='54' viewport='0 0 100 100' style='fill:black;font-size:27px;'><text y='50%'>🏹</text></svg>")
+      16 0,
+    auto; /*!emojicursor.app  https://www.w3schools.com/charsets/ref_emoji.asp*/
+
+  /* SIZES */
+  --titleSize: 4rem;
+  --subtitleSize: 1rem;
+  --textSize: 1.2rem;
+  --targetSize: 10rem;
+}
+
+/* GENERAL */
+html,
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative; /* so overflow will work in safari too*/
+  background-color: var(--black);
+  touch-action: manipulation; /* disable zoom on double tap*/
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--black);
+  overflow: hidden;
+}
+
+/* SECTIONS */
+
+#aboutMeSection,
+#creditsSection,
+#gameSection {
+  display: none;
+}
+#game:checked ~ #gameSection,
+#aboutMe:checked ~ #aboutMeSection,
+#credits:checked ~ #creditsSection {
+  display: block;
+}
+
+#game:checked ~ #welcomeSection {
+  display: none;
+}
+#welcomeSection p {
+  text-align:center;
+}
+#gameSection {
+  overflow: hidden;
+  position: relative;
+  counter-reset: points;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-image: var(--game-bg-img, --game-bg-img_backup);
+  background-color: var(--bgOverlayColor);
+  background-blend-mode: multiply;
+  touch-action: manipulation; /* disable zoom on double tap*/
+  cursor: var(--cursor);
+}
+#welcomeSection {
+  background-image: var(--menu-bg-img, --menu-bg-img_backup);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--bgOverlayColor);
+  background-blend-mode: multiply;
+  height: 100vh;
+}
+#welcomeSection p {
+  padding: 20px 0;
+  max-width: 400px;
+}
+
+#welcomeSection .menuButton:nth-child(3) {
+  margin-top: 20px;
+}
+
+/* Menu */
+.title {
+  font-size: var(--titleSize);
+  color: var(--textColor);
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px var(--callToActionColor),
+    0 0 10px var(--callToActionColor), 0 0 15px var(--callToActionColor),
+    0 0 20px var(--callToActionColor), 0 0 25px var(--callToActionColor),
+    0 0 30px var(--callToActionColor), 0 0 35px var(--callToActionColor);
+}
+
+.menuButton {
+  color: var(--textColor);
+  font-weight: 600;
+  font-size: var(--subtitleSize);
+  letter-spacing: 2px;
+  display: block;
+  width: 50%;
+  max-width: 350px;
+  margin: 3rem auto;
+  background-color: var(--callToActionColor);
+  border-radius: 50px;
+  padding: .8rem;
+  text-transform: uppercase;
+}
+input.menuButton {
+  display: initial;
+  border: 50px;
+  border-radius: 50px;
+  padding: .8rem;
+  font-size: 1rem;
+  opacity: 1;
+  
+}
+a.menuButton {
+  display: initial;
+  border: 50px;
+  border-radius: 50px;
+  padding: .8rem;
+  font-size: 1rem;
+  opacity: 1;
+  
+}
+
+.menuButton:hover {
+  filter: brightness(150%);
+}
+
+/*POP UP WINDOWS*/
+.popUp {
+  background-color: var(--popUpBg);
+  width: 90%;
+  border-radius: 3px;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 800px;
+  overflow: auto;
+}
+
+.closePopup {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  font-size: var(--titleSize);
+  color: var(--textColor);
+  cursor: pointer;
+}
+h2 {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 2rem 0;
+  background-color: var(--callToActionColor);
+  color: var(--textColor);
+  font-size: 2rem;
+}
+p {
+  text-align: justify;
+  width: 80%;
+  margin: 0 auto;
+  line-height: 2.5rem;
+  padding: 3rem 0 0 0;
+  font-size: var(--textSize);
+  color: var(--textColor);
+}
+a {
+  background-color: var(--callToActionColor);
+  padding: 3px 6px;
+  text-decoration: none;
+  color: var(--textColor);
+}
+a:hover {
+  filter: brightness(150%);
+}
+
+input {
+  opacity: 0;
+  /* display: none; creates space on top --why?*/
+}
+/* Logic */
+input[type="checkbox"] {
+  position: absolute;
+  top: -40px;
+}
+
+input[type="radio"]:checked {
+  counter-increment: points;
+}
+
+aside {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+}
+#score {
+  box-sizing: border-box;
+  background-color: var(--scoreBg);
+  border-radius: 50px;
+  font-size: var(--subtitleSize);
+  color: var(--textColor);
+  width: 20%;
+  text-align: center;
+  line-height: 80px;
+  margin: 0 20px;
+  height: 2rem;
+  position: relative;
+}
+
+#score::after {
+  content: counter(points) "/100";
+  text-shadow: 0 0 5px var(--purple_light), 0 0 10px var(--purple_light),
+    0 0 15px var(--purple_light), 0 0 20px var(--purple_light),
+    0 0 25px var(--purple_light), 0 0 30px var(--purple_light),
+    0 0 35px var(--purple_light);
+
+  position: absolute;
+  line-height: 2rem;
+  width: 100%;
+  left: 0;
+}
+
+/* Countdown */
+#countdown {
+  background-color: var(--callToActionColor);
+  border-radius: 50px;
+  font-size: var(--subtitleSize);
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 2rem;
+  width: 70%;
+  margin: 0 20px;
+  position: relative;
+}
+#progressBar {
+  width: 0%;
+  background-color: var(--progressBar);
+  height: 2rem;
+  overflow: hidden;
+  animation: progress 100s linear;
+  animation-fill-mode: forwards;
+}
+#counter {
+  margin-right: 20px;
+  color: var(--textColor);
+  line-height: 27px;
+  line-height: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#counter::before {
+  content: "";
+  animation: counter 100s step-end 1 forwards;
+}
+
+#counter::after {
+  content: "";
+  animation: counter 10s step-end 10 forwards;
+}
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes counter {
+  0% {
+    content: "9";
+  }
+  10% {
+    content: "8";
+  }
+  20% {
+    content: "7";
+  }
+  30% {
+    content: "6";
+  }
+  40% {
+    content: "5";
+  }
+  50% {
+    content: "4";
+  }
+  60% {
+    content: "3";
+  }
+  70% {
+    content: "2";
+  }
+  80% {
+    content: "1";
+  }
+  90%,
+  100% {
+    content: "0";
+  }
+}
+
+/* MOVING TARGETS */
+ul#shootingField {
+  list-style-type: none;
+  margin: 0;
+}
+input[type="radio"]:checked ~ .zombie,
+input[type="radio"]:checked ~ .ghost,
+input[type="radio"]:checked ~ .skull {
+  display: none;
+}
+
+input[type="reset"] {
+ padding: 0;
+  height: 0;
+  animation: showResetButton .1s linear;
+}
+
+.target {
+  z-index: 10;
+  cursor: var(--cursor);
+}
+
+.initial-target-location {
+  position: absolute;
+  transform: scale(0);
+  will-change: transfrom; /* for optimization, tells browser what property will change */
+}
+
+/* Target 1*/
+#target-1-location {
+  animation: targetLocation1 7s linear 960ms;
+}
+
+@keyframes targetLocation1 {
+  0% {
+    transform: translateX(-10vw) translateY(14vh) scale(0.8) rotate(70deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.7) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.5) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(21vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(0.8) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 2*/
+#target-2-location {
+  animation: targetLocation2 7s linear 960ms;
+  animation-delay: 2s;
+}
+
+@keyframes targetLocation2 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.4) rotate(-10deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.7) rotate(50deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.8) rotate(55deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(21vh) scale(0.4) rotate(60deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(0.8) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 3*/
+#target-3-location {
+  animation: targetLocation3 7s linear 960ms;
+  animation-delay: 1s;
+}
+
+@keyframes targetLocation3 {
+  0% {
+    transform: translateX(-30vw) translateY(5vh) scale(0.6) rotate(-30deg);
+  }
+  20% {
+    transform: translateX(5vw) translateY(6vh) scale(0.4) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(20vw) translateY(10vh) scale(0.5) rotate(0deg);
+  }
+  60% {
+    transform: translateX(32vw) translateY(0vh) scale(0.8) rotate(10deg);
+  }
+  80% {
+    transform: translateX(60vw) translateY(40vh) scale(0.5) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(120vw) translateY(10vh) scale(0.8) rotate(-27deg);
+  }
+}
+
+/* Target 4*/
+#target-4-location {
+  animation: targetLocation4 7s linear 960ms;
+  animation-delay: 2s;
+}
+
+@keyframes targetLocation4 {
+  0% {
+    transform: translateX(-30vw) translateY(20vh) scale(0.4) rotate(50deg);
+  }
+  20% {
+    transform: translateX(2vw) translateY(15vh) scale(0.6) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(20vw) translateY(13vh) scale(0.7) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(11vh) scale(0.4) rotate(45deg);
+  }
+  80% {
+    transform: translateX(83vw) translateY(15vh) scale(0.8) rotate(88deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.6) rotate(17deg);
+  }
+}
+
+/* Target 5*/
+#target-5-location {
+  animation: targetLocation5 7s linear 960ms;
+  animation-delay: 4s;
+}
+
+@keyframes targetLocation5 {
+  0% {
+    transform: translateX(-30vw) translateY(4vh) scale(0.5) rotate(-70deg);
+  }
+  20% {
+    transform: translateX(7vw) translateY(20vh) scale(0.6) rotate(5deg);
+  }
+  40% {
+    transform: translateX(17vw) translateY(13vh) scale(0.8) rotate(48deg);
+  }
+  60% {
+    transform: translateX(30vw) translateY(21vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(40vw) translateY(20vh) scale(0.8) rotate(-11deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(13vh) scale(0.6) rotate(-60deg);
+  }
+}
+
+/* Target 6*/
+#target-6-location {
+  animation: targetLocation6 6s linear 960ms;
+  animation-delay: 6s;
+}
+
+@keyframes targetLocation6 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(1deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(20vh) scale(0.8) rotate(40deg);
+  }
+  40% {
+    transform: translateX(33vw) translateY(33vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(57vw) translateY(21vh) scale(0.6) rotate(71deg);
+  }
+  80% {
+    transform: translateX(83vw) translateY(13vh) scale(1) rotate(24deg);
+  }
+  100% {
+    transform: translateX(130vw) translateY(20vh) scale(0.5) rotate(19deg);
+  }
+}
+
+/* Target 7*/
+#target-7-location {
+  animation: targetLocation7 7s linear 960ms;
+  animation-delay: 7s;
+}
+
+@keyframes targetLocation7 {
+  0% {
+    transform: translateX(-30vw) translateY(40vh) scale(0.5) rotate(19deg);
+  }
+  20% {
+    transform: translateX(2vw) translateY(20vh) scale(0.8) rotate(0deg);
+  }
+  40% {
+    transform: translateX(11vw) translateY(13vh) scale(0.8) rotate(-24deg);
+  }
+  60% {
+    transform: translateX(19vw) translateY(10vh) scale(0.6) rotate(11deg);
+  }
+  80% {
+    transform: translateX(37vw) translateY(13vh) scale(1) rotate(17deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(20vh) scale(0.5) rotate(-73deg);
+  }
+}
+
+/* Target 8*/
+#target-8-location {
+  animation: targetLocation8 7s linear 960ms;
+  animation-delay: 7s;
+}
+
+@keyframes targetLocation8 {
+  0% {
+    transform: translateX(-30vw) translateY(10vh) scale(0.5) rotate(37deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(8vh) scale(0.8) rotate(11deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(10vh) scale(0.8) rotate(-11deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(20vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(15vh) scale(1) rotate(80deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(20vh) scale(0.5) rotate(7deg);
+  }
+}
+
+/* Target 9*/
+#target-9-location {
+  animation: targetLocation9 6s linear 960ms;
+  animation-delay: 9s;
+}
+
+@keyframes targetLocation9 {
+  0% {
+    transform: translateX(-30vw) translateY(8vh) scale(0.5) rotate(40deg);
+  }
+  20% {
+    transform: translateX(5vw) translateY(4vh) scale(0.8) rotate(27deg);
+  }
+  40% {
+    transform: translateX(15vw) translateY(14vh) scale(0.8) rotate(72deg);
+  }
+  60% {
+    transform: translateX(30vw) translateY(20vh) scale(0.6) rotate(-10deg);
+  }
+  80% {
+    transform: translateX(50vw) translateY(15vh) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(25vh) scale(0.5) rotate(0deg);
+  }
+}
+
+/* Target 10*/
+#target-10-location {
+  animation: targetLocation10 7s linear 960ms;
+  animation-delay: 10s;
+}
+
+@keyframes targetLocation10 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(30vh) scale(0.8) rotate(50deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.8) rotate(44deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(21vh) scale(0.6) rotate(11deg);
+  }
+  80% {
+    transform: translateX(80vw) translateY(15vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(30vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 11*/
+#target-11-location {
+  animation: targetLocation11 7s linear 960ms;
+  animation-delay: 11s;
+}
+
+@keyframes targetLocation11 {
+  0% {
+    transform: translateX(-30vw) translateY(40vh) scale(0.5) rotate(40deg);
+  }
+  20% {
+    transform: translateX(4vw) translateY(30vh) scale(0.8) rotate(-16deg);
+  }
+  40% {
+    transform: translateX(24vw) translateY(21vh) scale(0.8) rotate(-61deg);
+  }
+  60% {
+    transform: translateX(55vw) translateY(33vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(78vw) translateY(14vh) scale(1) rotate(23deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(5vh) scale(0.5) rotate(17deg);
+  }
+}
+
+/* Target 12*/
+#target-12-location {
+  animation: targetLocation12 6s linear 960ms;
+  animation-delay: 12s;
+}
+
+@keyframes targetLocation12 {
+  0% {
+    transform: translateX(-30vw) translateY(9vh) scale(0.5) rotate(-30deg);
+  }
+  20% {
+    transform: translateX(10vw) translateY(30vh) scale(0.8) rotate(44deg);
+  }
+  40% {
+    transform: translateX(30vw) translateY(10vh) scale(0.8) rotate(-44deg);
+  }
+  60% {
+    transform: translateX(66vw) translateY(25vh) scale(0.6) rotate(-10deg);
+  }
+  80% {
+    transform: translateX(88vw) translateY(17vh) scale(1) rotate(27deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(25vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 13*/
+#target-13-location {
+  animation: targetLocation13 7s linear 960ms;
+  animation-delay: 12s;
+}
+
+@keyframes targetLocation13 {
+  0% {
+    transform: translateX(-30vw) translateY(30vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(14vw) translateY(26vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(27vw) translateY(32vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(55vw) translateY(21vh) scale(0.6) rotate(10deg);
+  }
+  80% {
+    transform: translateX(79vw) translateY(14vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(40vh) scale(0.5) rotate(-10deg);
+  }
+}
+
+/* Target 14*/
+#target-14-location {
+  animation: targetLocation14 7s linear 960ms;
+  animation-delay: 14s;
+}
+
+@keyframes targetLocation14 {
+  0% {
+    transform: translateX(-30vw) translateY(40vh) scale(0.5) rotate(-25deg);
+  }
+  20% {
+    transform: translateX(3vw) translateY(45vh) scale(0.8) rotate(5deg);
+  }
+  40% {
+    transform: translateX(15vw) translateY(33vh) scale(0.8) rotate(-20deg);
+  }
+  60% {
+    transform: translateX(33vw) translateY(21vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(48vw) t translateY(18vh) scale(1) rotate(30deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-17deg);
+  }
+}
+
+/* Target 15*/
+#target-15-location {
+  animation: targetLocation15 6s linear 960ms;
+  animation-delay: 15s;
+}
+
+@keyframes targetLocation15 {
+  0% {
+    transform: translateX(-30vw) translateY(-8vh) scale(0.5) rotate(11deg);
+  }
+  20% {
+    transform: translateX(7vw) translateY(10vh) scale(0.8) rotate(-20deg);
+  }
+  40% {
+    transform: translateX(37vw) translateY(30vh) scale(0.8) rotate(-35deg);
+  }
+  60% {
+    transform: translateX(50vw) translateY(10vh) scale(0.6) rotate(65deg);
+  }
+  80% {
+    transform: translateX(83vw) translateY(35vh) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(40vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 16*/
+#target-16-location {
+  animation: targetLocation16 7s linear 960ms;
+  animation-delay: 16s;
+}
+
+@keyframes targetLocation16 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(60deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(0vh) scale(0.8) rotate(-11deg);
+  }
+  40% {
+    transform: translateX(37vw) translateY(22vh) scale(0.8) rotate(-8deg);
+  }
+  60% {
+    transform: translateX(66vw) translateY(35vh) scale(0.6) rotate(1deg);
+  }
+  80% {
+    transform: translateX(88vw) translateY(0vh) scale(1) rotate(35deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(20vh) scale(0.5) rotate(-11deg);
+  }
+}
+
+/* Target 17*/
+#target-17-location {
+  animation: targetLocation17 7s linear 960ms;
+  animation-delay: 18s;
+}
+
+@keyframes targetLocation17 {
+  0% {
+    transform: translateX(-30vw) translateY(-10vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(17vw) translateY(40vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(34vw) translateY(0vh) scale(0.8) rotate(15deg);
+  }
+  60% {
+    transform: translateX(51vw) translateY(44vh) scale(0.6) rotate(30deg);
+  }
+  80% {
+    transform: translateX(61vw) translateY(10vh) scale(1) rotate(7deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-5vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 18*/
+#target-18-location {
+  animation: targetLocation18 7s linear 960ms;
+  animation-delay: 18s;
+}
+
+@keyframes targetLocation18 {
+  0% {
+    transform: translateX(-30vw) translateY(-5vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(9vw) translateY(0vh) scale(0.8) rotate(-45deg);
+  }
+  40% {
+    transform: translateX(29vw) translateY(33vh) scale(0.8) rotate(-34deg);
+  }
+  60% {
+    transform: translateX(69vw) translateY(21vh) scale(0.6) rotate(34deg);
+  }
+  80% {
+    transform: translateX(90vw) translateY(22vh) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 19*/
+#target-19-location {
+  animation: targetLocation19 7s linear 960ms;
+  animation-delay: 19s;
+}
+
+@keyframes targetLocation19 {
+  0% {
+    transform: translateX(-30vw) translateY(30vh) scale(0.5) rotate(17deg);
+  }
+  20% {
+    transform: translateX(8vw) translateY(45vh) scale(0.8) rotate(-2deg);
+  }
+  40% {
+    transform: translateX(27vw) translateY(33vh) scale(0.8) rotate(16deg);
+  }
+  60% {
+    transform: translateX(51vw) translateY(21vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(79vw) t translateY(18vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-17deg);
+  }
+}
+
+/* Target 20*/
+#target-20-location {
+  animation: targetLocation20 7s linear 960ms;
+  animation-delay: 20s;
+}
+
+@keyframes targetLocation20 {
+  0% {
+    transform: translateX(-30vw) translateY(30vh) scale(0.5) rotate(30deg);
+  }
+  20% {
+    transform: translateX(12vw) translateY(0vh) scale(0.8) rotate(-17deg);
+  }
+  40% {
+    transform: translateX(41vw) translateY(40vh) scale(0.8) rotate(5deg);
+  }
+  60% {
+    transform: translateX(65vw) translateY(38vh) scale(0.6) rotate(46deg);
+  }
+  80% {
+    transform: translateX(93vw) translateY(0vh) scale(1) rotate(55deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(44vh) scale(0.5) rotate(60deg);
+  }
+}
+
+/* Target 21*/
+#target-21-location {
+  animation: targetLocation21 6s linear 960ms;
+  animation-delay: 21s;
+}
+
+@keyframes targetLocation21 {
+  0% {
+    transform: translateX(-30vw) translateY(30vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(22vw) translateY(45vh) scale(0.8) rotate(24deg);
+  }
+  40% {
+    transform: translateX(35vw) translateY(33vh) scale(0.8) rotate(55deg);
+  }
+  60% {
+    transform: translateX(71vw) translateY(21vh) scale(0.6) rotate(16deg);
+  }
+  80% {
+    transform: translateX(79vw) t translateY(18vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(14vh) scale(0.5) rotate(50deg);
+  }
+}
+
+/* Target 22*/
+#target-22-location {
+  animation: targetLocation22 7s linear 960ms;
+  animation-delay: 21s;
+}
+
+@keyframes targetLocation22 {
+  0% {
+    transform: translateX(-30vw) translateY(20vh) scale(0.5) rotate(-10deg);
+  }
+  20% {
+    transform: translateX(30vw) translateY(45vh) scale(0.8) rotate(54deg);
+  }
+  40% {
+    transform: translateX(50vw) translateY(25vh) scale(0.8) rotate(-14deg);
+  }
+  60% {
+    transform: translateX(61vw) translateY(0vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(72vw) t translateY(18vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(0deg);
+  }
+}
+
+/* Target 23*/
+#target-23-location {
+  animation: targetLocation23 7s linear 960ms;
+  animation-delay: 23s;
+}
+
+@keyframes targetLocation23 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(17vw) translateY(18vh) scale(0.8) rotate(0deg);
+  }
+  40% {
+    transform: translateX(46vw) translateY(-1vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(68vw) translateY(10vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(85vw) t translateY(-1vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(14vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 24*/
+#target-24-location {
+  animation: targetLocation24 7s linear 960ms;
+  animation-delay: 24s;
+}
+
+@keyframes targetLocation24 {
+  0% {
+    transform: translateX(-30vw) translateY(22vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(21vw) translateY(11vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(38vw) translateY(33vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(61vw) translateY(11vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(89vw) t translateY(22vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-47deg);
+  }
+}
+
+/* Target 25*/
+#target-25-location {
+  animation: targetLocation25 7s linear 960ms;
+  animation-delay: 24s;
+}
+
+@keyframes targetLocation25 {
+  0% {
+    transform: translateX(-30vw) translateY(18vh) scale(0.5) rotate(55deg);
+  }
+  20% {
+    transform: translateX(22vw) translateY(14vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(45vw) translateY(32vh) scale(0.8) rotate(-65deg);
+  }
+  60% {
+    transform: translateX(58vw) translateY(12vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(75vw) t translateY(40vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 26*/
+#target-26-location {
+  animation: targetLocation26 7s linear 960ms;
+  animation-delay: 26s;
+}
+
+@keyframes targetLocation26 {
+  0% {
+    transform: translateX(-30vw) translateY(5vh) scale(0.5) rotate(60deg);
+  }
+  20% {
+    transform: translateX(15vw) translateY(45vh) scale(0.8) rotate(40deg);
+  }
+  40% {
+    transform: translateX(17vw) translateY(-4vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(50vw) translateY(17vh) scale(0.6) rotate(55deg);
+  }
+  80% {
+    transform: translateX(65vw) t translateY(10vh) scale(1) rotate(13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(37vh) scale(0.5) rotate(-22deg);
+  }
+}
+
+/* Target 27*/
+#target-27-location {
+  animation: targetLocation27 7s linear 960ms;
+  animation-delay: 27s;
+}
+
+@keyframes targetLocation27 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(52deg);
+  }
+  20% {
+    transform: translateX(4vw) translateY(14vh) scale(0.8) rotate(0deg);
+  }
+  40% {
+    transform: translateX(14vw) translateY(36vh) scale(0.8) rotate(4deg);
+  }
+  60% {
+    transform: translateX(41vw) translateY(40vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(76vw) t translateY(22vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-3vh) scale(0.5) rotate(0deg);
+  }
+}
+
+/* Target 28*/
+#target-28-location {
+  animation: targetLocation28 7s linear 960ms;
+  animation-delay: 28s;
+}
+
+@keyframes targetLocation28 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(4deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(33vh) scale(0.8) rotate(-40deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(40vh) scale(0.8) rotate(50deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(0vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(30vh) scale(1) rotate(37deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-21deg);
+  }
+}
+
+/* Target 29*/
+#target-29-location {
+  animation: targetLocation29 7s linear 960ms;
+  animation-delay: 29s;
+}
+
+@keyframes targetLocation29 {
+  0% {
+    transform: translateX(-30vw) translateY(30vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(13vw) translateY(-10vh) scale(0.8) rotate(-34deg);
+  }
+  40% {
+    transform: translateX(35vw) translateY(22vh) scale(0.8) rotate(5deg);
+  }
+  60% {
+    transform: translateX(62vw) translateY(20vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(88vw) t translateY(30vh) scale(1) rotate(63deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(27deg);
+  }
+}
+
+/* Target 30*/
+#target-30-location {
+  animation: targetLocation30 7s linear 960ms;
+  animation-delay: 30s;
+}
+
+@keyframes targetLocation30 {
+  0% {
+    transform: translateX(-30vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+  20% {
+    transform: translateX(15vw) translateY(33vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(48vw) translateY(0vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(75vw) translateY(10vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(81vw) t translateY(-3vh) scale(1) rotate(4deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(34vh) scale(0.5) rotate(-3deg);
+  }
+}
+
+/* Target 31*/
+#target-31-location {
+  animation: targetLocation31 6s linear 960ms;
+  animation-delay: 31s;
+}
+
+@keyframes targetLocation31 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(20deg);
+  }
+  20% {
+    transform: translateX(45vw) translateY(0vh) scale(0.8) rotate(0deg);
+  }
+  40% {
+    transform: translateX(59vw) translateY(33vh) scale(0.8) rotate(-37deg);
+  }
+  60% {
+    transform: translateX(88vw) translateY(21vh) scale(0.6) rotate(52deg);
+  }
+  80% {
+    transform: translateX(91vw) t translateY(0vh) scale(1) rotate(31deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-30deg);
+  }
+}
+
+/* Target 32*/
+#target-32-location {
+  animation: targetLocation32 7s linear 960ms;
+  animation-delay: 31s;
+}
+
+@keyframes targetLocation32 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(2deg);
+  }
+  20% {
+    transform: translateX(33vw) translateY(45vh) scale(0.8) rotate(-21deg);
+  }
+  40% {
+    transform: translateX(55vw) translateY(33vh) scale(0.8) rotate(-39deg);
+  }
+  60% {
+    transform: translateX(77vw) translateY(21vh) scale(0.6) rotate(59deg);
+  }
+  80% {
+    transform: translateX(88vw) t translateY(18vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(34deg);
+  }
+}
+
+/* Target 33*/
+#target-33-location {
+  animation: targetLocation33 7s linear 960ms;
+  animation-delay: 31s;
+}
+
+@keyframes targetLocation33 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(-34deg);
+  }
+  20% {
+    transform: translateX(29vw) translateY(22vh) scale(0.8) rotate(-43deg);
+  }
+  40% {
+    transform: translateX(56vw) translateY(32vh) scale(0.8) rotate(-34deg);
+  }
+  60% {
+    transform: translateX(63vw) translateY(0vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(76vw) t translateY(5vh) scale(1) rotate(38deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(7deg);
+  }
+}
+
+/* Target 34*/
+#target-34-location {
+  animation: targetLocation34 7s linear 960ms;
+  animation-delay: 32s;
+}
+
+@keyframes targetLocation34 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(8deg);
+  }
+  20% {
+    transform: translateX(24vw) translateY(43vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.8) rotate(-8deg);
+  }
+  60% {
+    transform: translateX(78vw) translateY(28vh) scale(0.6) rotate(-34deg);
+  }
+  80% {
+    transform: translateX(90vw) t translateY(0vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(15vh) scale(0.5) rotate(0deg);
+  }
+}
+
+/* Target 35*/
+#target-35-location {
+  animation: targetLocation35 7s linear 960ms;
+  animation-delay: 34s;
+}
+
+@keyframes targetLocation35 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(4vw) translateY(45vh) scale(0.8) rotate(-52deg);
+  }
+  40% {
+    transform: translateX(10vw) translateY(33vh) scale(0.8) rotate(37deg);
+  }
+  60% {
+    transform: translateX(33vw) translateY(21vh) scale(0.6) rotate(13deg);
+  }
+  80% {
+    transform: translateX(75vw) t translateY(18vh) scale(1) rotate(11deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-36deg);
+  }
+}
+
+/* Target 36*/
+#target-36-location {
+  animation: targetLocation36 7s linear 960ms;
+  animation-delay: 36s;
+}
+
+@keyframes targetLocation36 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(-10deg);
+  }
+  20% {
+    transform: translateX(47vw) translateY(45vh) scale(0.8) rotate(0deg);
+  }
+  40% {
+    transform: translateX(50vw) translateY(33vh) scale(0.8) rotate(55deg);
+  }
+  60% {
+    transform: translateX(78vw) translateY(21vh) scale(0.6) rotate(-60deg);
+  }
+  80% {
+    transform: translateX(81vw) t translateY(18vh) scale(1) rotate(-33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(27deg);
+  }
+}
+
+/* Target 37*/
+#target-37-location {
+  animation: targetLocation37 7s linear 960ms;
+  animation-delay: 37s;
+}
+
+@keyframes targetLocation37 {
+  0% {
+    transform: translateX(-30vw) translateY(0vh) scale(0.5) rotate(70deg);
+  }
+  20% {
+    transform: translateX(21vw) translateY(33vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(41vw) translateY(60vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(61vw) translateY(45vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(72vw) t translateY(18vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 38*/
+#target-38-location {
+  animation: targetLocation38 7s linear 960ms;
+  animation-delay: 38s;
+}
+
+@keyframes targetLocation38 {
+  0% {
+    transform: translateX(-30vw) translateY(3vh) scale(0.5) rotate(21deg);
+  }
+  20% {
+    transform: translateX(6vw) translateY(45vh) scale(0.8) rotate(-52deg);
+  }
+  40% {
+    transform: translateX(46vw) translateY(40vh) scale(0.8) rotate(-14deg);
+  }
+  60% {
+    transform: translateX(66vw) translateY(21vh) scale(0.6) rotate(41deg);
+  }
+  80% {
+    transform: translateX(76vw) t translateY(18vh) scale(1) rotate(1deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(60vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 39*/
+#target-39-location {
+  animation: targetLocation39 7s linear 960ms;
+  animation-delay: 39s;
+}
+
+@keyframes targetLocation39 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(11deg);
+  }
+  20% {
+    transform: translateX(46vw) translateY(45vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(69vw) translateY(18vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(75vw) translateY(44vh) scale(0.6) rotate(4deg);
+  }
+  80% {
+    transform: translateX(83vw) t translateY(18vh) scale(1) rotate(-41deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(3vh) scale(0.5) rotate(20deg);
+  }
+}
+
+/* Target 40*/
+#target-40-location {
+  animation: targetLocation40 6s linear 960ms;
+  animation-delay: 41s;
+}
+
+@keyframes targetLocation40 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(4deg);
+  }
+  20% {
+    transform: translateX(6vw) translateY(45vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(30vw) translateY(33vh) scale(0.8) rotate(-43deg);
+  }
+  60% {
+    transform: translateX(65vw) translateY(21vh) scale(0.6) rotate(47deg);
+  }
+  80% {
+    transform: translateX(76vw) t translateY(18vh) scale(1) rotate(56deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(30vh) scale(0.5) rotate(0deg);
+  }
+}
+
+/* Target 41*/
+#target-41-location {
+  animation: targetLocation41 7s linear 960ms;
+  animation-delay: 41s;
+}
+
+@keyframes targetLocation41 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(3deg);
+  }
+  20% {
+    transform: translateX(25vw) translateY(38vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(45vw) translateY(12vh) scale(0.8) rotate(5deg);
+  }
+  60% {
+    transform: translateX(65vw) translateY(44vh) scale(0.6) rotate(20deg);
+  }
+  80% {
+    transform: translateX(85vw) t translateY(18vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(22deg);
+  }
+}
+
+/* Target 42*/
+#target-42-location {
+  animation: targetLocation42 7s linear 960ms;
+  animation-delay: 42s;
+}
+
+@keyframes targetLocation42 {
+  0% {
+    transform: translateX(-30vw) translateY(0vh) scale(0.5) rotate(5deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.8) rotate(10deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(0vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(21vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(69vw) t translateY(0vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(30vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 43*/
+#target-43-location {
+  animation: targetLocation43 7s linear 960ms;
+  animation-delay: 43s;
+}
+
+@keyframes targetLocation43 {
+  0% {
+    transform: translateX(-30vw) translateY(0vh) scale(0.5) rotate(20deg);
+  }
+  20% {
+    transform: translateX(27vw) translateY(45vh) scale(0.8) rotate(-40deg);
+  }
+  40% {
+    transform: translateX(34vw) translateY(0vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(67vw) translateY(21vh) scale(0.6) rotate(10deg);
+  }
+  80% {
+    transform: translateX(92vw) t translateY(0vh) scale(1) rotate(13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.5) rotate(-17deg);
+  }
+}
+
+/* Target 44*/
+#target-44-location {
+  animation: targetLocation44 7s linear 960ms;
+  animation-delay: 44s;
+}
+
+@keyframes targetLocation44 {
+  0% {
+    transform: translateX(-30vw) translateY(-5vh) scale(0.5) rotate(10deg);
+  }
+  20% {
+    transform: translateX(10vw) translateY(10vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(45vw) translateY(18vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(63vw) translateY(21vh) scale(0.6) rotate(10deg);
+  }
+  80% {
+    transform: translateX(90vw) t translateY(-12vh) scale(1) rotate(13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-17deg);
+  }
+}
+
+/* Target 45*/
+#target-45-location {
+  animation: targetLocation45 7s linear 960ms;
+  animation-delay: 45s;
+}
+
+@keyframes targetLocation45 {
+  0% {
+    transform: translateX(-30vw) translateY(0vh) scale(0.5) rotate(71deg);
+  }
+  20% {
+    transform: translateX(5vw) translateY(10vh) scale(0.8) rotate(-51deg);
+  }
+  40% {
+    transform: translateX(55vw) translateY(23vh) scale(0.8) rotate(-51deg);
+  }
+  60% {
+    transform: translateX(65vw) translateY(31vh) scale(0.6) rotate(61deg);
+  }
+  80% {
+    transform: translateX(95vw) t translateY(48vh) scale(1) rotate(31deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(40vh) scale(0.5) rotate(-21deg);
+  }
+}
+
+/* Target 46*/
+#target-46-location {
+  animation: targetLocation46 7s linear 960ms;
+  animation-delay: 46s;
+}
+
+@keyframes targetLocation46 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(20deg);
+  }
+  20% {
+    transform: translateX(25vw) translateY(16vh) scale(0.8) rotate(-20deg);
+  }
+  40% {
+    transform: translateX(50vw) translateY(25vh) scale(0.8) rotate(-25deg);
+  }
+  60% {
+    transform: translateX(71vw) translateY(17vh) scale(0.6) rotate(20deg);
+  }
+  80% {
+    transform: translateX(86vw) t translateY(40vh) scale(1) rotate(23deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-4vh) scale(0.5) rotate(-2deg);
+  }
+}
+
+/* Target 47*/
+#target-47-location {
+  animation: targetLocation47 7s linear 960ms;
+  animation-delay: 47s;
+}
+
+@keyframes targetLocation47 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(72deg);
+  }
+  20% {
+    transform: translateX(6vw) translateY(45vh) scale(0.8) rotate(-52deg);
+  }
+  40% {
+    transform: translateX(47vw) translateY(33vh) scale(0.8) rotate(-52deg);
+  }
+  60% {
+    transform: translateX(73vw) translateY(21vh) scale(0.6) rotate(62deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(1) rotate(32deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-22deg);
+  }
+}
+
+/* Target 48*/
+#target-48-location {
+  animation: targetLocation48 6s linear 960ms;
+  animation-delay: 48s;
+}
+
+@keyframes targetLocation48 {
+  0% {
+    transform: translateX(-30vw) translateY(9vh) scale(0.5) rotate(2deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(19vh) scale(0.8) rotate(-20deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.8) rotate(-52deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(29vh) scale(0.6) rotate(20deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(1) rotate(32deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-9vh) scale(0.5) rotate(2deg);
+  }
+}
+
+/* Target 49*/
+#target-49-location {
+  animation: targetLocation49 7s linear 960ms;
+  animation-delay: 48s;
+}
+
+@keyframes targetLocation49 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(2vw) translateY(32vh) scale(0.8) rotate(-11deg);
+  }
+  40% {
+    transform: translateX(18vw) translateY(33vh) scale(0.8) rotate(-42deg);
+  }
+  60% {
+    transform: translateX(38vw) translateY(43vh) scale(0.6) rotate(53deg);
+  }
+  80% {
+    transform: translateX(70vw) t translateY(-4vh) scale(1) rotate(32deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(3vh) scale(0.5) rotate(-52deg);
+  }
+}
+
+/* Target 50*/
+#target-50-location {
+  animation: targetLocation50 7s linear 960ms;
+  animation-delay: 50s;
+}
+
+@keyframes targetLocation50 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(9vw) translateY(45vh) scale(0.8) rotate(5deg);
+  }
+  40% {
+    transform: translateX(24vw) translateY(33vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(66vw) translateY(21vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(79vw) t translateY(18vh) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-20deg);
+  }
+}
+
+/* Target 51*/
+#target-51-location {
+  animation: targetLocation51 7s linear 960ms;
+  animation-delay: 51s;
+}
+
+@keyframes targetLocation51 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(70deg);
+  }
+  20% {
+    transform: translateX(28vw) translateY(40vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(35vw) translateY(23vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(44vw) translateY(12vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(52vw) ttranslateY(60vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(20vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 52*/
+#target-52-location {
+  animation: targetLocation52 6s linear 960ms;
+  animation-delay: 52s;
+}
+
+@keyframes targetLocation52 {
+  0% {
+    transform: translateX(-30vw) translateY(0vh) scale(0.5) rotate(-13deg);
+  }
+  20% {
+    transform: translateX(33vw) translateY(13vh) scale(0.8) rotate(16deg);
+  }
+  40% {
+    transform: translateX(60vw) translateY(60vh) scale(0.8) rotate(61deg);
+  }
+  60% {
+    transform: translateX(73vw) translateY(21vh) scale(0.6) rotate(47deg);
+  }
+  80% {
+    transform: translateX(91vw) t translateY(18vh) scale(1) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-20deg);
+  }
+}
+
+/* Target 53*/
+#target-53-location {
+  animation: targetLocation53 7s linear 960ms;
+  animation-delay: 52s;
+}
+
+@keyframes targetLocation53 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(10vw) translateY(9vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(60vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(66vw) translateY(9vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(84vw) t translateY(30vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(40vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 54*/
+#target-54-location {
+  animation: targetLocation54 7s linear 960ms;
+  animation-delay: 54s;
+}
+
+@keyframes targetLocation54 {
+  0% {
+    transform: translateX(-30vw) translateY(20vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(23vw) translateY(12vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(30vw) translateY(33vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(65vw) translateY(14vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(87vw) t translateY(10vh) scale(1) rotate(13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 55*/
+#target-55-location {
+  animation: targetLocation55 7s linear 960ms;
+  animation-delay: 55s;
+}
+
+@keyframes targetLocation55 {
+  0% {
+    transform: translateX(-30vw) translateY(30vh) scale(0.5) rotate(50deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.8) rotate(30deg);
+  }
+  40% {
+    transform: translateX(44vw) translateY(33vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(68vw) translateY(-4vh) scale(0.6) rotate(10deg);
+  }
+  80% {
+    transform: translateX(70vw) t translateY(18vh) scale(1) rotate(37deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-47deg);
+  }
+}
+
+/* Target 56*/
+#target-56-location {
+  animation: targetLocation56 7s linear 960ms;
+  animation-delay: 54s;
+}
+
+@keyframes targetLocation56 {
+  0% {
+    transform: translateX(-30vw) translateY(3vh) scale(0.5) rotate(37deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.8) rotate(57deg);
+  }
+  40% {
+    transform: translateX(50vw) translateY(-3vh) scale(0.8) rotate(5deg);
+  }
+  60% {
+    transform: translateX(76vw) translateY(21vh) scale(0.6) rotate(-20deg);
+  }
+  80% {
+    transform: translateX(92vw) t translateY(18vh) scale(1) rotate(-33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 57*/
+#target-57-location {
+  animation: targetLocation57 7s linear 960ms;
+  animation-delay: 57s;
+}
+
+@keyframes targetLocation57 {
+  0% {
+    transform: translateX(-30vw) translateY(60vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(16vw) translateY(45vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(34vw) translateY(33vh) scale(0.8) rotate(25deg);
+  }
+  60% {
+    transform: translateX(72vw) translateY(-3vh) scale(0.6) rotate(21deg);
+  }
+  80% {
+    transform: translateX(83vw) t translateY(18vh) scale(1) rotate(36deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 58*/
+#target-58-location {
+  animation: targetLocation58 7s linear 960ms;
+  animation-delay: 58s;
+}
+
+@keyframes targetLocation58 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(17deg);
+  }
+  20% {
+    transform: translateX(11vw) translateY(45vh) scale(0.8) rotate(27deg);
+  }
+  40% {
+    transform: translateX(22vw) translateY(9vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(55vw) translateY(21vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(88vw) t translateY(-3vh) scale(1) rotate(-32deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(30vh) scale(0.5) rotate(-37deg);
+  }
+}
+
+/* Target 59*/
+#target-59-location {
+  animation: targetLocation59 7s linear 960ms;
+  animation-delay: 59s;
+}
+
+@keyframes targetLocation59 {
+  0% {
+    transform: translateX(-30vw) translateY(0vh) scale(0.5) rotate(-37deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(10vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(60vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(1) rotate(-13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(-2deg);
+  }
+}
+
+/* Target 60*/
+#target-60-location {
+  animation: targetLocation60 7s linear 960ms;
+  animation-delay: 60s;
+}
+
+@keyframes targetLocation60 {
+  0% {
+    transform: translateX(-30vw) translateY(-14vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(9vw) translateY(45vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(50vw) translateY(45vh) scale(0.8) rotate(-45deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(1vh) scale(0.6) rotate(-24deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(-6vh) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(20vh) scale(0.5) rotate(-14deg);
+  }
+}
+
+/* Target 61*/
+#target-61-location {
+  animation: targetLocation61 6s linear 960ms;
+  animation-delay: 61s;
+}
+
+@keyframes targetLocation61 {
+  0% {
+    transform: translateX(-30vw) translateY(3vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(10vw) translateY(45vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(47vw) translateY(33vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(66vw) translateY(5vh) scale(0.6) rotate(20deg);
+  }
+  80% {
+    transform: translateX(89vw) t translateY(18vh) scale(1) rotate(23deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(-17deg);
+  }
+}
+
+/* Target 62*/
+#target-62-location {
+  animation: targetLocation62 7s linear 960ms;
+  animation-delay: 62s;
+}
+
+@keyframes targetLocation62 {
+  0% {
+    transform: translateX(-30vw) translateY(37vh) scale(0.5) rotate(20deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.8) rotate(-41deg);
+  }
+  40% {
+    transform: translateX(44vw) translateY(17vh) scale(0.8) rotate(-24deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(-3vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(85vw) t translateY(20vh) scale(1) rotate(31deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.5) rotate(-2deg);
+  }
+}
+
+/* Target 63*/
+#target-63-location {
+  animation: targetLocation63 6s linear 960ms;
+  animation-delay: 63s;
+}
+
+@keyframes targetLocation63 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(17vw) translateY(-3vh) scale(0.8) rotate(-15deg);
+  }
+  40% {
+    transform: translateX(43vw) translateY(33vh) scale(0.8) rotate(-35deg);
+  }
+  60% {
+    transform: translateX(59vw) translateY(0vh) scale(0.6) rotate(10deg);
+  }
+  80% {
+    transform: translateX(84vw) t translateY(18vh) scale(1) rotate(1deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(60vh) scale(0.5) rotate(-2deg);
+  }
+}
+
+/* Target 64*/
+#target-64-location {
+  animation: targetLocation64 7s linear 960ms;
+  animation-delay: 63s;
+}
+
+@keyframes targetLocation64 {
+  0% {
+    transform: translateX(-30vw) translateY(22vh) scale(0.5) rotate(3deg);
+  }
+  20% {
+    transform: translateX(3vw) translateY(45vh) scale(0.8) rotate(31deg);
+  }
+  40% {
+    transform: translateX(33vw) translateY(33vh) scale(0.8) rotate(25deg);
+  }
+  60% {
+    transform: translateX(63vw) translateY(21vh) scale(0.6) rotate(-3deg);
+  }
+  80% {
+    transform: translateX(93vw) t translateY(18vh) scale(1) rotate(12deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(27deg);
+  }
+}
+
+/* Target 65*/
+#target-65-location {
+  animation: targetLocation65 7s linear 960ms;
+  animation-delay: 65s;
+}
+
+@keyframes targetLocation65 {
+  0% {
+    transform: translateX(-30vw) translateY(-5vh) scale(0.5) rotate(-8deg);
+  }
+  20% {
+    transform: translateX(30vw) translateY(13vh) scale(0.8) rotate(5deg);
+  }
+  40% {
+    transform: translateX(58vw) translateY(33vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(79vw) translateY(-5vh) scale(0.6) rotate(2deg);
+  }
+  80% {
+    transform: translateX(94vw) t translateY(18vh) scale(1) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(4deg);
+  }
+}
+
+/* Target 66*/
+#target-66-location {
+  animation: targetLocation66 6s linear 960ms;
+  animation-delay: 66s;
+}
+
+@keyframes targetLocation66 {
+  0% {
+    transform: translateX(-30vw) translateY(10vh) scale(0.5) rotate(10deg);
+  }
+  20% {
+    transform: translateX(36vw) translateY(45vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(47vw) translateY(22vh) scale(0.8) rotate(-35deg);
+  }
+  60% {
+    transform: translateX(77vw) translateY(17vh) scale(0.6) rotate(31deg);
+  }
+  80% {
+    transform: translateX(92vw) t translateY(-3vh) scale(1) rotate(-10deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.5) rotate(-2deg);
+  }
+}
+
+/* Target 67*/
+#target-67-location {
+  animation: targetLocation67 7s linear 960ms;
+  animation-delay: 67s;
+}
+
+@keyframes targetLocation67 {
+  0% {
+    transform: translateX(-30vw) translateY(-3vh) scale(0.5) rotate(2deg);
+  }
+  20% {
+    transform: translateX(27vw) translateY(45vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(13vh) scale(0.8) rotate(-2deg);
+  }
+  60% {
+    transform: translateX(57vw) translateY(45vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(79vw) t translateY(18vh) scale(1) rotate(2deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(45vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 68*/
+#target-68-location {
+  animation: targetLocation68 7s linear 960ms;
+  animation-delay: 67s;
+}
+
+@keyframes targetLocation68 {
+  0% {
+    transform: translateX(-30vw) translateY(1vh) scale(0.5) rotate(70deg);
+  }
+  20% {
+    transform: translateX(18vw) translateY(45vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(45vw) translateY(3vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(73vw) translateY(21vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(92vw) t translateY(1vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(18vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 69*/
+#target-69-location {
+  animation: targetLocation69 7s linear 960ms;
+  animation-delay: 69s;
+}
+
+@keyframes targetLocation69 {
+  0% {
+    transform: translateX(-30vw) translateY(37vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(10vw) translateY(45vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(38vw) translateY(6vh) scale(0.8) rotate(5deg);
+  }
+  60% {
+    transform: translateX(56vw) translateY(21vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(-4vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-14deg);
+  }
+}
+
+/* Target 70*/
+#target-70-location {
+  animation: targetLocation70 7s linear 960ms;
+  animation-delay: 70s;
+}
+
+@keyframes targetLocation70 {
+  0% {
+    transform: translateX(-30vw) translateY(6vh) scale(0.5) rotate(14deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.8) rotate(5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.8) rotate(-9deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(21vh) scale(0.6) rotate(12deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(1) rotate(-14deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(30vh) scale(0.5) rotate(6deg);
+  }
+}
+
+/* Target 71*/
+#target-71-location {
+  animation: targetLocation71 7s linear 960ms;
+  animation-delay: 71s;
+}
+
+@keyframes targetLocation71 {
+  0% {
+    transform: translateX(-30vw) translateY(17vh) scale(0.5) rotate(21deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(-5vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(33vh) scale(0.8) rotate(-45deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(0vh) scale(0.6) rotate(10deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 72*/
+#target-72-location {
+  animation: targetLocation72 7s linear 960ms;
+  animation-delay: 72s;
+}
+
+@keyframes targetLocation72 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(11deg);
+  }
+  20% {
+    transform: translateX(24vw) translateY(-5vh) scale(0.8) rotate(-27deg);
+  }
+  40% {
+    transform: translateX(44vw) translateY(33vh) scale(0.8) rotate(4deg);
+  }
+  60% {
+    transform: translateX(64vw) translateY(44vh) scale(0.6) rotate(43deg);
+  }
+  80% {
+    transform: translateX(84vw) t translateY(10vh) scale(1) rotate(34deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(4vh) scale(0.5) rotate(2deg);
+  }
+}
+
+/* Target 73*/
+#target-73-location {
+  animation: targetLocation73 6s linear 960ms;
+  animation-delay: 74s;
+}
+
+@keyframes targetLocation73 {
+  0% {
+    transform: translateX(-30vw) translateY(7vh) scale(0.5) rotate(4deg);
+  }
+  20% {
+    transform: translateX(22vw) translateY(-10vh) scale(0.8) rotate(-40deg);
+  }
+  40% {
+    transform: translateX(49vw) translateY(37vh) scale(0.8) rotate(-45deg);
+  }
+  60% {
+    transform: translateX(75vw) translateY(-12vh) scale(0.6) rotate(40deg);
+  }
+  80% {
+    transform: translateX(90vw) t translateY(18vh) scale(1) rotate(34deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(-24deg);
+  }
+}
+
+/* Target 74*/
+#target-74-location {
+  animation: targetLocation74 7s linear 960ms;
+  animation-delay: 74s;
+}
+
+@keyframes targetLocation74 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(70deg);
+  }
+  20% {
+    transform: translateX(13vw) translateY(45vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(47vw) translateY(18vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(58vw) translateY(33vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(84vw) t translateY(-10vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(60vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 75*/
+#target-75-location {
+  animation: targetLocation75 7s linear 960ms;
+  animation-delay: 74s;
+}
+
+@keyframes targetLocation75 {
+  0% {
+    transform: translateX(-30vw) translateY(-10vh) scale(0.5) rotate(70deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(40vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(48vw) translateY(13vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(21vh) scale(0.6) rotate(50deg);
+  }
+  80% {
+    transform: translateX(77vw) t translateY(2vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-15vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 76*/
+#target-76-location {
+  animation: targetLocation76 7s linear 960ms;
+  animation-delay: 76s;
+}
+
+@keyframes targetLocation76 {
+  0% {
+    transform: translateX(-30vw) translateY(4vh) scale(0.5) rotate(70deg);
+  }
+  20% {
+    transform: translateX(12vw) translateY(27vh) scale(0.8) rotate(0deg);
+  }
+  40% {
+    transform: translateX(31vw) translateY(3vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(55vw) translateY(21vh) scale(0.6) rotate(0deg);
+  }
+  80% {
+    transform: translateX(60vw) t translateY(18vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 77*/
+#target-77-location {
+  animation: targetLocation77 7s linear 960ms;
+  animation-delay: 77s;
+}
+
+@keyframes targetLocation77 {
+  0% {
+    transform: translateX(-30vw) translateY(27vh) scale(0.5) rotate(3deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(-3vh) scale(0.8) rotate(33deg);
+  }
+  40% {
+    transform: translateX(28vw) translateY(10vh) scale(0.8) rotate(-33deg);
+  }
+  60% {
+    transform: translateX(33vw) translateY(60vh) scale(0.6) rotate(33deg);
+  }
+  80% {
+    transform: translateX(50vw) t translateY(45vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(4vh) scale(0.5) rotate(-37deg);
+  }
+}
+
+/* Target 78*/
+#target-78-location {
+  animation: targetLocation78 7s linear 960ms;
+  animation-delay: 78s;
+}
+
+@keyframes targetLocation78 {
+  0% {
+    transform: translateX(-30vw) translateY(40vh) scale(0.5) rotate(2deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(12vh) scale(0.8) rotate(12deg);
+  }
+  40% {
+    transform: translateX(47vw) translateY(22vh) scale(0.8) rotate(1deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(0vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(78vw) t translateY(40vh) scale(1) rotate(16deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(60vh) scale(0.5) rotate(-1deg);
+  }
+}
+
+/* Target 79*/
+#target-79-location {
+  animation: targetLocation79 7s linear 960ms;
+  animation-delay: 79s;
+}
+
+@keyframes targetLocation79 {
+  0% {
+    transform: translateX(-30vw) translateY(-9vh) scale(0.5) rotate(-3deg);
+  }
+  20% {
+    transform: translateX(3vw) translateY(9vh) scale(0.8) rotate(10deg);
+  }
+  40% {
+    transform: translateX(33vw) translateY(33vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(43vw) translateY(9vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(58vw) t translateY(18vh) scale(1) rotate(-13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 80*/
+#target-80-location {
+  animation: targetLocation80 7s linear 960ms;
+  animation-delay: 80s;
+}
+
+@keyframes targetLocation80 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(70deg);
+  }
+  20% {
+    transform: translateX(11vw) translateY(8vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(31vw) translateY(21vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(57vw) translateY(21vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(62vw) t translateY(8vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 81*/
+#target-81-location {
+  animation: targetLocation81 7s linear 960ms;
+  animation-delay: 81s;
+}
+
+@keyframes targetLocation81 {
+  0% {
+    transform: translateX(-30vw) translateY(4vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(11vw) translateY(15vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(38vw) translateY(3vh) scale(0.8) rotate(-25deg);
+  }
+  60% {
+    transform: translateX(55vw) translateY(21vh) scale(0.6) rotate(40deg);
+  }
+  80% {
+    transform: translateX(73vw) t translateY(28vh) scale(1) rotate(14deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(20vh) scale(0.5) rotate(-43deg);
+  }
+}
+
+/* Target 82*/
+#target-82-location {
+  animation: targetLocation82 6s linear 960ms;
+  animation-delay: 82s;
+}
+
+@keyframes targetLocation82 {
+  0% {
+    transform: translateX(-30vw) translateY(24vh) scale(0.5) rotate(6deg);
+  }
+  20% {
+    transform: translateX(9vw) translateY(45vh) scale(0.8) rotate(-10deg);
+  }
+  40% {
+    transform: translateX(29vw) translateY(23vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(1vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(69vw) t translateY(8vh) scale(1) rotate(44deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(20vh) scale(0.5) rotate(21deg);
+  }
+}
+
+/* Target 83*/
+#target-83-location {
+  animation: targetLocation83 7s linear 960ms;
+  animation-delay: 82s;
+}
+
+@keyframes targetLocation83 {
+  0% {
+    transform: translateX(-30vw) translateY(4vh) scale(0.5) rotate(21deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(5vh) scale(0.8) rotate(-22deg);
+  }
+  40% {
+    transform: translateX(45vw) translateY(33vh) scale(0.8) rotate(32deg);
+  }
+  60% {
+    transform: translateX(61vw) translateY(21vh) scale(0.6) rotate(11deg);
+  }
+  80% {
+    transform: translateX(89vw) t translateY(8vh) scale(1) rotate(52deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(30vh) scale(0.5) rotate(-23deg);
+  }
+}
+
+/* Target 84*/
+#target-84-location {
+  animation: targetLocation84 7s linear 960ms;
+  animation-delay: 84s;
+}
+
+@keyframes targetLocation84 {
+  0% {
+    transform: translateX(-30vw) translateY(34vh) scale(0.5) rotate(23deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(5vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(46vw) translateY(60vh) scale(0.8) rotate(-25deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(41vh) scale(0.6) rotate(-1deg);
+  }
+  80% {
+    transform: translateX(92vw) t translateY(18vh) scale(1) rotate(13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(-57deg);
+  }
+}
+
+/* Target 85*/
+#target-85-location {
+  animation: targetLocation85 7s linear 960ms;
+  animation-delay: 86s;
+}
+
+@keyframes targetLocation85 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(5deg);
+  }
+  20% {
+    transform: translateX(3vw) translateY(45vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(43vw) translateY(13vh) scale(0.8) rotate(-25deg);
+  }
+  60% {
+    transform: translateX(63vw) translateY(31vh) scale(0.6) rotate(30deg);
+  }
+  80% {
+    transform: translateX(83vw) t translateY(5vh) scale(1) rotate(41deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(28vh) scale(0.5) rotate(-14deg);
+  }
+}
+
+/* Target 86*/
+#target-86-location {
+  animation: targetLocation86 7s linear 960ms;
+  animation-delay: 86s;
+}
+
+@keyframes targetLocation86 {
+  0% {
+    transform: translateX(-30vw) translateY(28vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(32vw) translateY(-5vh) scale(0.8) rotate(24deg);
+  }
+  40% {
+    transform: translateX(43vw) translateY(33vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(58vw) translateY(2vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(93vw) t translateY(22vh) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-5vh) scale(0.5) rotate(-20deg);
+  }
+}
+
+/* Target 87*/
+#target-87-location {
+  animation: targetLocation87 7s linear 960ms;
+  animation-delay: 87s;
+}
+
+@keyframes targetLocation87 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(40deg);
+  }
+  20% {
+    transform: translateX(12vw) translateY(5vh) scale(0.8) rotate(0deg);
+  }
+  40% {
+    transform: translateX(34vw) translateY(19vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(40vw) translateY(-7vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(57vw) t translateY(18vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-13vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 88*/
+#target-88-location {
+  animation: targetLocation88 7s linear 960ms;
+  animation-delay: 88s;
+}
+
+@keyframes targetLocation88 {
+  0% {
+    transform: translateX(-30vw) translateY(9vh) scale(0.5) rotate(-6deg);
+  }
+  20% {
+    transform: translateX(10vw) translateY(15vh) scale(0.8) rotate(-44deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(-2vh) scale(0.8) rotate(-26deg);
+  }
+  60% {
+    transform: translateX(65vw) translateY(44vh) scale(0.6) rotate(42deg);
+  }
+  80% {
+    transform: translateX(92vw) t translateY(38vh) scale(1) rotate(10deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 89*/
+#target-89-location {
+  animation: targetLocation89 6s linear 960ms;
+  animation-delay: 89s;
+}
+
+@keyframes targetLocation89 {
+  0% {
+    transform: translateX(-30vw) translateY(4vh) scale(0.5) rotate(-27deg);
+  }
+  20% {
+    transform: translateX(18vw) translateY(47vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(37vw) translateY(13vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(61vw) translateY(60vh) scale(0.6) rotate(34deg);
+  }
+  80% {
+    transform: translateX(86vw) t translateY(-2vh) scale(1) rotate(48deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(14vh) scale(0.5) rotate(-21deg);
+  }
+}
+
+/* Target 90*/
+#target-90-location {
+  animation: targetLocation90 7s linear 960ms;
+  animation-delay: 90s;
+}
+
+@keyframes targetLocation90 {
+  0% {
+    transform: translateX(-30vw) translateY(-3vh) scale(0.5) rotate(2deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(15vh) scale(0.8) rotate(-1deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(-1vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(53vw) translateY(31vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(61vw) t translateY(18vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-6vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 91*/
+#target-91-location {
+  animation: targetLocation91 7s linear 960ms;
+  animation-delay: 90s;
+}
+
+@keyframes targetLocation91 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(25vh) scale(0.8) rotate(-7deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(13vh) scale(0.8) rotate(-35deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(35vh) scale(0.6) rotate(23deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(1) rotate(13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(8vh) scale(0.5) rotate(-47deg);
+  }
+}
+
+/* Target 92*/
+#target-92-location {
+  animation: targetLocation92 6s linear 960ms;
+  animation-delay: 85s;
+}
+
+@keyframes targetLocation92 {
+  0% {
+    transform: translateX(-30vw) translateY(-14vh) scale(0.5) rotate(-7deg);
+  }
+  20% {
+    transform: translateX(17vw) translateY(30vh) scale(0.8) rotate(50deg);
+  }
+  40% {
+    transform: translateX(43vw) translateY(10vh) scale(0.8) rotate(35deg);
+  }
+  60% {
+    transform: translateX(62vw) translateY(45vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(92vw) t translateY(18vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(27deg);
+  }
+}
+
+/* Target 93*/
+#target-93-location {
+  animation: targetLocation93 7s linear 960ms;
+  animation-delay: 80s;
+}
+
+@keyframes targetLocation93 {
+  0% {
+    transform: translateX(-30vw) translateY(45vh) scale(0.5) rotate(70deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(4vh) scale(0.8) rotate(-50deg);
+  }
+  40% {
+    transform: translateX(40vw) translateY(13vh) scale(0.8) rotate(-55deg);
+  }
+  60% {
+    transform: translateX(50vw) translateY(42vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(60vw) t translateY(18vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(42vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 94*/
+#target-94-location {
+  animation: targetLocation94 7s linear 960ms;
+  animation-delay: 92s;
+}
+
+@keyframes targetLocation94 {
+  0% {
+    transform: translateX(-30vw) translateY(1vh) scale(0.5) rotate(-10deg);
+  }
+  20% {
+    transform: translateX(17vw) translateY(15vh) scale(0.8) rotate(5deg);
+  }
+  40% {
+    transform: translateX(32vw) translateY(23vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(55vw) translateY(-5vh) scale(0.6) rotate(10deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(30vh) scale(0.5) rotate(-17deg);
+  }
+}
+
+/* Target 95*/
+#target-95-location {
+  animation: targetLocation95 6s linear 960ms;
+  animation-delay: 89s;
+}
+
+@keyframes targetLocation95 {
+  0% {
+    transform: translateX(-30vw) translateY(-7vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(21vw) translateY(5vh) scale(0.8) rotate(0deg);
+  }
+  40% {
+    transform: translateX(41vw) translateY(33vh) scale(0.8) rotate(-5deg);
+  }
+  60% {
+    transform: translateX(61vw) translateY(-7vh) scale(0.6) rotate(-10deg);
+  }
+  80% {
+    transform: translateX(91vw) t translateY(28vh) scale(1) rotate(33deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.5) rotate(-15deg);
+  }
+}
+
+/* Target 96*/
+#target-96-location {
+  animation: targetLocation96 7s linear 960ms;
+  animation-delay: 91s;
+}
+
+@keyframes targetLocation96 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(7deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(45vh) scale(0.8) rotate(-15deg);
+  }
+  40% {
+    transform: translateX(48vw) translateY(33vh) scale(0.8) rotate(5deg);
+  }
+  60% {
+    transform: translateX(70vw) translateY(21vh) scale(0.6) rotate(46deg);
+  }
+  80% {
+    transform: translateX(75vw) t translateY(18vh) scale(1) rotate(14deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(0vh) scale(0.5) rotate(-27deg);
+  }
+}
+
+/* Target 97*/
+#target-97-location {
+  animation: targetLocation97 6s linear 960ms;
+  animation-delay: 91s;
+}
+
+@keyframes targetLocation97 {
+  0% {
+    transform: translateX(-30vw) translateY(-10vh) scale(0.5) rotate(14deg);
+  }
+  20% {
+    transform: translateX(16vw) translateY(4vh) scale(0.8) rotate(-5deg);
+  }
+  40% {
+    transform: translateX(45vw) translateY(47vh) scale(0.8) rotate(55deg);
+  }
+  60% {
+    transform: translateX(63vw) translateY(17vh) scale(0.6) rotate(6deg);
+  }
+  80% {
+    transform: translateX(83vw) t translateY(25vh) scale(1) rotate(3deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(60vh) scale(0.5) rotate(-7deg);
+  }
+}
+
+/* Target 98*/
+#target-98-location {
+  animation: targetLocation98 7s linear 960ms;
+  animation-delay: 93s;
+}
+
+@keyframes targetLocation98 {
+  0% {
+    transform: translateX(-30vw) translateY(-4vh) scale(0.5) rotate(0deg);
+  }
+  20% {
+    transform: translateX(20vw) translateY(8vh) scale(0.8) rotate(10deg);
+  }
+  40% {
+    transform: translateX(41vw) translateY(13vh) scale(0.8) rotate(0deg);
+  }
+  60% {
+    transform: translateX(60vw) translateY(21vh) scale(0.6) rotate(60deg);
+  }
+  80% {
+    transform: translateX(80vw) t translateY(18vh) scale(1) rotate(23deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10vh) scale(0.5) rotate(-35deg);
+  }
+}
+
+/* Target 99*/
+#target-99-location {
+  animation: targetLocation99 6s linear 960ms;
+  animation-delay: 95s;
+}
+
+@keyframes targetLocation99 {
+  0% {
+    transform: translateX(-30vw) translateY(1vh) scale(0.5) rotate(34deg);
+  }
+  20% {
+    transform: translateX(18vw) translateY(45vh) scale(0.8) rotate(-40deg);
+  }
+  40% {
+    transform: translateX(33vw) translateY(17vh) scale(0.8) rotate(-45deg);
+  }
+  60% {
+    transform: translateX(75vw) translateY(27vh) scale(0.6) rotate(30deg);
+  }
+  80% {
+    transform: translateX(85vw) t translateY(38vh) scale(1) rotate(39deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(57vh) scale(0.5) rotate(-22deg);
+  }
+}
+
+/* Target 100*/
+#target-100-location {
+  animation: targetLocation100 7s linear 960ms;
+  animation-delay: 95s;
+}
+
+@keyframes targetLocation100 {
+  0% {
+    transform: translateX(-30vw) translateY(14vh) scale(0.5) rotate(36deg);
+  }
+  20% {
+    transform: translateX(28vw) translateY(-3vh) scale(0.8) rotate(-20deg);
+  }
+  40% {
+    transform: translateX(43vw) translateY(28vh) scale(0.8) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(68vw) translateY(11vh) scale(0.6) rotate(40deg);
+  }
+  80% {
+    transform: translateX(82vw) t translateY(16vh) scale(1) rotate(13deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(-10vh) scale(0.5) rotate(-47deg);
+  }
+}
+
+#gameOver {
+  height: 0;
+  opacity: 0;
+  animation: showGameOver 3s;
+  animation-fill-mode: forwards;
+  animation-delay: 100s;
+  width: 85%;
+  min-height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: var(--titleSize);
+  color: var(--textColor);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px var(--callToActionColor),
+    0 0 10px var(--callToActionColor), 0 0 15px var(--callToActionColor),
+    0 0 20px var(--callToActionColor), 0 0 25px var(--callToActionColor),
+    0 0 30px var(--callToActionColor), 0 0 35px var(--callToActionColor);
+  user-select: none; /* disallow text selection, supported by Chrome and Opera */
+  -webkit-user-select: none; /* disallow text selection, Safari */
+  -khtml-user-select: none; /* disallow text selection, Konqueror HTML */
+  -moz-user-select: none; /* disallow text selection, Firefox */
+  -ms-user-select: none; /* disallow text selection, Internet Explorer/Edge */
+}
+
+@keyframes showGameOver {
+  99% {
+    height: 150px;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showResetButton {
+  99% {
+    height: auto;
+    padding: 0.8rem;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#gameOver a:nth-child(1) {
+  background-color: transparent;
+  line-height: 25px;
+  display: block;
+  font-size: var(--textSize);
+}
+
+#gameOver a {
+  visibility: hidden;
+  animation: enableLinks 3s;
+  animation-fill-mode: forwards;
+  animation-delay: 100s;
+}
+
+@keyframes enableLinks {
+  100% {
+    visibility: visible;
+    animation-play-state: running;
+  }
+}
+/* ZOMBIE */
+.zombie {
+  width: var(--targetSize);
+  height: var(--targetSize);
+  margin: 100px auto;
+}
+.zombie .head {
+  width: 100%;
+  height: 100%;
+  background-color: var(--green_base);
+  border-radius: 50% 50% 30% 30%;
+}
+
+.zombie .forehead {
+  width: 100%;
+  height: 20%;
+}
+
+.zombie .eyes-and-nose {
+  width: 100%;
+  height: 33%;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.zombie .eyebags {
+  margin: 0 auto;
+  width: 3rem;
+  height: 4rem;
+  background-color: var(--green_dark);
+  display: inline-block;
+  border-radius: 70%;
+}
+
+.zombie .eye {
+  width: 100%;
+  height: 80%;
+
+  background-color: var(--yellow_light);
+  border-radius: 60%;
+  position: relative;
+}
+
+.zombie .nose {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.zombie .nostrils {
+  width: 30%;
+  height: 100%;
+  background-color: var(--green_dark);
+  border-radius: 70% 30%;
+  margin: 5px;
+}
+.zombie .nostrils:nth-child(2) {
+  transform: scaleX(-1); /*mirror flip effect*/
+}
+
+.zombie .jaw {
+  width: 100%;
+  height: 33%;
+  padding-top: 8%;
+}
+.zombie .mouth {
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: var(--purple_base);
+  border-bottom-left-radius: 30%;
+}
+.zombie .teeth {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.zombie .teeth:nth-child(3) {
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+}
+.zombie .tooth {
+  width: 25%;
+  height: 100%;
+  background-color: lightgray;
+}
+.zombie .teeth:nth-child(1) .tooth {
+  border-radius: 0 0 70% 70%;
+}
+.zombie .teeth:nth-child(3) .tooth {
+  border-radius: 70% 70% 0 0;
+}
+.zombie .teeth:nth-child(1) .tooth:nth-child(2) {
+  background-color: var(--yellow_light);
+}
+.zombie .teeth:nth-child(1) .tooth:nth-child(3) {
+  opacity: 0;
+}
+.zombie .teeth:nth-child(3) .tooth:nth-child(1) {
+  opacity: 0;
+}
+.zombie .teeth:nth-child(3) .tooth:nth-child(4) {
+  background-color: var(--grey_dark);
+}
+.zombie .openMouth {
+  height: 8px;
+}
+/*GHOST*/
+.ghost {
+  width: var(--targetSize);
+  height: var(--targetSize);
+  margin: 100px auto;
+}
+.ghost .body {
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 50% 50% 5% 5%;
+  box-shadow: 0 0 5px var(--white), 0 0 10px var(--white), 0 0 15px var(--white),
+    0 0 20px var(--white), 0 0 25px var(--white), 0 0 30px var(--white),
+    0 0 35px var(--white);
+}
+.ghost .forehead {
+  height: 20%;
+}
+.ghost .eyes {
+  display: flex;
+  height: 30%;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+.ghost .eye {
+  width: 15%;
+  height: 100%;
+  background-color: var(--black);
+  border-radius: 60%;
+  position: relative;
+}
+.ghost .eye:nth-child(1) {
+  transform: rotate(20deg);
+  border-bottom: 15px solid var(--grey_base);
+  border-left: 8px solid var(--grey_base);
+}
+.ghost .eye:nth-child(2) {
+  transform: rotate(-20deg);
+  border-bottom: 15px solid var(--grey_base);
+  border-right: 8px solid var(--grey_base);
+}
+
+.ghost .mouth {
+  height: 30%;
+}
+
+.ghost .lips {
+  background-color: var(--black);
+  width: 12%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 45%;
+}
+/* SKULL */
+.skull {
+  width: var(--targetSize);
+  height: var(--targetSize);
+  margin: 0 auto;
+}
+
+.skull .head {
+  background-color: var(--white);
+  border-radius: 50% 50% 15% 15%;
+  height: 9rem;
+}
+.skull .head .forehead {
+  height: 30%;
+}
+.skull .head .eyes {
+  height: 30%;
+}
+.skull .head .eyes div:nth-child(1) {
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+}
+.skull .head .eyes div:nth-child(1) div {
+  background-color: var(--black);
+    border-radius: 50px;
+    border-bottom: 1rem solid var(--grey_base);
+    border-left: 1rem solid var(--grey_base);
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+}
+
+.skull .head .eyes div:nth-child(1) div:nth-child(1) {
+  float: right;
+}
+
+.skull .head .nose {
+ margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 2rem solid var(--black);
+}
+.skull .jaw {
+  height: 2rem;
+    width: 6rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+.skull .jaw .tooth {
+  width: 22%;
+  height: 100%;
+  border-radius: 0 0 5px 5px;
+  display: inline-block;
+  background-color: var(--white);
+  box-sizing: border-box;
+  margin: 0 1%;
+}
